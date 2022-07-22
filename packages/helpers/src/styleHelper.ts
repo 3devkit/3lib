@@ -3,3 +3,4 @@ export class StyleHelper {
     return arg.filter(a => typeof a === 'string').join(' ');
   }
 }
+//
