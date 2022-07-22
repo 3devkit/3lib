@@ -1,0 +1,42 @@
+.Popover {
+  position: relative;
+  z-index: 1000;
+
+  @state0: {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  };
+
+  @state1: {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  };
+
+  @keyframes show {
+    from {
+      @state0();
+    }
+    to {
+      @state1();
+    }
+  }
+
+  @keyframes hide {
+    from {
+      @state1();
+    }
+    to {
+      @state0();
+    }
+  }
+
+  .content {
+    animation: show 100ms ease;
+    animation-fill-mode: forwards;
+  }
+
+  .close {
+    animation: hide 100ms ease;
+    animation-fill-mode: forwards;
+  }
+}

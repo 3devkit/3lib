@@ -1,0 +1,102 @@
+.ExModal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @bgState0: {
+    opacity: 0;
+  };
+  @bgState1: {
+    opacity: 1;
+  };
+
+  @contentState0: {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  };
+  @contentState1: {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  };
+
+  @keyframes bgShow {
+    from {
+      @bgState0();
+    }
+    to {
+      @bgState1();
+    }
+  }
+
+  @keyframes bgHide {
+    from {
+      @bgState1();
+    }
+    to {
+      @bgState0();
+    }
+  }
+
+  @keyframes contentShow {
+    from {
+      @contentState0();
+    }
+    to {
+      @contentState1();
+    }
+  }
+
+  @keyframes contentHide {
+    from {
+      @contentState1();
+    }
+    to {
+      @contentState0();
+    }
+  }
+
+  @animationDuration: 150ms;
+  @background2: rgba(255, 255, 255, 0.4);
+  @foreground2: rgba(0, 0, 0, 0.1);
+
+  .bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, @background2, @background2),
+      linear-gradient(to right, @foreground2, @foreground2);
+    backdrop-filter: blur(5px);
+    animation: bgShow @animationDuration ease;
+    animation-fill-mode: forwards;
+  }
+
+  .bgClose {
+    animation: bgHide @animationDuration ease;
+    animation-fill-mode: forwards;
+  }
+
+  .content {
+    position: relative;
+    animation: contentShow @animationDuration ease;
+    animation-fill-mode: forwards;
+  }
+
+  .contentClose {
+    animation: contentHide @animationDuration ease;
+    animation-fill-mode: forwards;
+  }
+}
+
+.ExModalContentBox {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+}

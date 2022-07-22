@@ -1,0 +1,24 @@
+.Dialog {
+  width: 500px;
+  min-height: 300px;
+
+  .context {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.Popover {
+  width: 250px;
+
+  .item {
+    padding: 12px 16px;
+
+    &:hover {
+      background-color: rgb(243, 243, 243);
+      cursor: pointer;
+    }
+  }
+}
