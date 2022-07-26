@@ -25,6 +25,6 @@
     "react-cool-portal": "^1.2.0",
     "react-loading": "^2.0.3",
     "react-popper": "^2.3.0",
-    "zustand": "^4.0.0-rc.4"
+    "zustand": "^4.0.0"
   }
 }
