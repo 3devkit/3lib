@@ -132,7 +132,7 @@ const ExModal: React.FC<React.PropsWithChildren<unknown>> = props => {
 
 export const ExDialogBox: React.FC<
   React.PropsWithChildren<
-    { title: string; width?: number } & HTMLAttributes<HTMLDivElement>
+    { title?: string; width?: number } & HTMLAttributes<HTMLDivElement>
   >
 > = props => {
   const { title, width, style, className, ...attr } = props;
@@ -143,7 +143,7 @@ export const ExDialogBox: React.FC<
       {...attr}
       style={{ ...style, width }}
     >
-      <div className="lib_dialogbox_title">{props.title}</div>
+      {title && <div className="lib_dialogbox_title">{props.title}</div>}
       {props.children}
     </div>
   );
