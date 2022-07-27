@@ -131,3 +131,24 @@ export const ExPopoverBox: React.FC<
     </div>
   );
 };
+
+interface ExPopoverMenuProps {
+  icon?: React.ReactNode;
+  title: string;
+}
+
+export const ExPopoverMenu: React.FC<
+  ExPopoverMenuProps & React.HTMLAttributes<HTMLButtonElement>
+> = props => {
+  const { className, title, icon, ...attr } = props;
+  return (
+    <button className={styles.ExPopoverMenu} {...attr}>
+      {icon && <span className={styles.icon}>{icon}</span>}
+      <span className={styles.text}>{title}</span>
+    </button>
+  );
+};
+
+export const ExPopoverDivider: React.FC = () => {
+  return <div className={styles.ExPopoverDivider} />;
+};
