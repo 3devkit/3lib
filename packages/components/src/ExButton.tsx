@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import type { ButtonProps } from 'react-bootstrap/Button';
+import { Button, ButtonProps } from 'react-bootstrap';
 import { ExLoading, LoadingColor } from './ExLoading';
 import styles from './ExButton.less';
 
@@ -47,4 +46,3 @@ export const ExButton: React.FC<ExButtonProps> = props => {
     </Button>
   );
 };
-// test
