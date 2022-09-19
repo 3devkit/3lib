@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Stack } from 'react-bootstrap';
+import { MdUpload } from 'react-icons/md';
 import {
   ExPopoverBox,
   ExDialogBox,
@@ -29,6 +30,10 @@ function PageConnent() {
       <Stack gap={3} direction="horizontal">
         <TestDialog />
         <TesPopover />
+        <ExButton icon={<MdUpload />}>
+          <input type="file" />
+          Upload
+        </ExButton>
         <ExButton>Button</ExButton>
         <ExButton loading={true}>Hello</ExButton>
         <ExLoading />

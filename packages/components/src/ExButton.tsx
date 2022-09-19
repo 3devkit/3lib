@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import { Button, ButtonProps } from 'react-bootstrap';
+import { Button, ButtonProps, Stack } from 'react-bootstrap';
 import { ExLoading, LoadingColor } from './ExLoading';
 import styles from './ExButton.less';
+import { StyleHelper } from '@3lib/helpers';
 
 export type ExButtonProps = {
   loading?: boolean;
   loadingColor?: LoadingColor;
   isClickLoading?: boolean;
+  icon?: React.ReactNode;
 } & ButtonProps;
 
 export const ExButton: React.FC<ExButtonProps> = props => {
   const {
+    icon,
     loading = false,
     onClick,
     isClickLoading = false,
     loadingColor = props.variant === 'light' ? 'primary' : 'light',
+    className,
     ...attr
   } = props;
 
@@ -32,7 +36,11 @@ export const ExButton: React.FC<ExButtonProps> = props => {
   const isLoading = clickLoading || loading;
 
   return (
-    <Button {...attr} onClick={onClickHandle}>
+    <Button
+      {...attr}
+      onClick={onClickHandle}
+      className={StyleHelper.combinedSty(styles.Button, className)}
+    >
       <div className={styles.ExButton}>
         {isLoading && (
           <div className={styles.loadingBox}>
@@ -40,7 +48,10 @@ export const ExButton: React.FC<ExButtonProps> = props => {
           </div>
         )}
         <div className={styles.content} style={{ opacity: isLoading ? 0 : 1 }}>
-          {props.children}
+          <Stack gap={2} direction="horizontal">
+            {icon}
+            {props.children}
+          </Stack>
         </div>
       </div>
     </Button>
